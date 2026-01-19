@@ -12,7 +12,7 @@ const translations = {
   es: {
     // Navigation
     'nav.services': 'Servicios',
-    'nav.portfolio': 'Portfolio',
+    'nav.portfolio': 'Portafolio',
     'nav.memberships': 'Membresías',
     'nav.methodology': 'Metodología',
     'nav.contact': 'Contacto',

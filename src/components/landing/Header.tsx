@@ -28,18 +28,21 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'glass shadow-lg' : 'bg-transparent'
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'glass shadow-lg' : 'bg-transparent'
+        }`}
     >
       <div className="container mx-auto px-4 py-4">
         <nav className="flex items-center justify-between">
           {/* Logo */}
           <motion.a
             href="#"
+            onClick={(e) => {
+              e.preventDefault();
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            className="flex items-center gap-2"
+            className="flex items-center gap-2 cursor-pointer"
           >
             <img src={logo} alt="DatecSoft Marketing" className="h-10 w-auto" />
           </motion.a>
@@ -51,17 +54,21 @@ const Header = () => {
             className="hidden lg:flex items-center gap-8"
           >
             {navLinks.map((link, index) => (
-              <motion.a
+              <a
                 key={link.href}
                 href={link.href}
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-                className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors relative group"
+                onClick={(e) => {
+                  e.preventDefault();
+                  const element = document.querySelector(link.href);
+                  if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
+                className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors relative group cursor-pointer"
               >
                 {link.label}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
-              </motion.a>
+              </a>
             ))}
           </motion.div>
 
@@ -75,28 +82,34 @@ const Header = () => {
             <div className="flex items-center gap-1 bg-muted rounded-full p-1">
               <button
                 onClick={() => setLanguage('es')}
-                className={`px-3 py-1 text-xs font-medium rounded-full transition-all ${
-                  language === 'es'
-                    ? 'bg-primary text-primary-foreground'
-                    : 'text-muted-foreground hover:text-foreground'
-                }`}
+                className={`px-3 py-1 text-xs font-medium rounded-full transition-all ${language === 'es'
+                  ? 'bg-primary text-primary-foreground'
+                  : 'text-muted-foreground hover:text-foreground'
+                  }`}
               >
                 ES
               </button>
               <button
                 onClick={() => setLanguage('en')}
-                className={`px-3 py-1 text-xs font-medium rounded-full transition-all ${
-                  language === 'en'
-                    ? 'bg-primary text-primary-foreground'
-                    : 'text-muted-foreground hover:text-foreground'
-                }`}
+                className={`px-3 py-1 text-xs font-medium rounded-full transition-all ${language === 'en'
+                  ? 'bg-primary text-primary-foreground'
+                  : 'text-muted-foreground hover:text-foreground'
+                  }`}
               >
                 EN
               </button>
             </div>
 
             <Button asChild>
-              <a href="#contact">{t('nav.schedule')}</a>
+              <a
+                href="#contact"
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' });
+                }}
+              >
+                {t('nav.schedule')}
+              </a>
             </Button>
           </motion.div>
 
@@ -127,8 +140,15 @@ const Header = () => {
                   <a
                     key={link.href}
                     href={link.href}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className="block text-foreground/80 hover:text-primary transition-colors"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setIsMobileMenuOpen(false);
+                      const element = document.querySelector(link.href);
+                      if (element) {
+                        element.scrollIntoView({ behavior: 'smooth' });
+                      }
+                    }}
+                    className="block text-foreground/80 hover:text-primary transition-colors cursor-pointer"
                   >
                     {link.label}
                   </a>
@@ -136,23 +156,30 @@ const Header = () => {
                 <div className="flex items-center gap-2 pt-4 border-t border-border">
                   <button
                     onClick={() => setLanguage('es')}
-                    className={`px-3 py-1 text-sm rounded-full ${
-                      language === 'es' ? 'bg-primary text-primary-foreground' : 'bg-muted'
-                    }`}
+                    className={`px-3 py-1 text-sm rounded-full ${language === 'es' ? 'bg-primary text-primary-foreground' : 'bg-muted'
+                      }`}
                   >
                     ES
                   </button>
                   <button
                     onClick={() => setLanguage('en')}
-                    className={`px-3 py-1 text-sm rounded-full ${
-                      language === 'en' ? 'bg-primary text-primary-foreground' : 'bg-muted'
-                    }`}
+                    className={`px-3 py-1 text-sm rounded-full ${language === 'en' ? 'bg-primary text-primary-foreground' : 'bg-muted'
+                      }`}
                   >
                     EN
                   </button>
                 </div>
                 <Button asChild className="w-full">
-                  <a href="#contact">{t('nav.schedule')}</a>
+                  <a
+                    href="#contact"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setIsMobileMenuOpen(false);
+                      document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' });
+                    }}
+                  >
+                    {t('nav.schedule')}
+                  </a>
                 </Button>
               </div>
             </motion.div>
