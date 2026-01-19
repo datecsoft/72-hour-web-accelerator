@@ -27,8 +27,17 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    const text = `
+*Nuevo mensaje de contacto*
+---------------------------
+*Nombre:* ${formData.name}
+*Email:* ${formData.email}
+*Empresa:* ${formData.company}
+*Mensaje:* ${formData.message}
+    `.trim();
+
+    const url = `https://wa.me/51930289206?text=${encodeURIComponent(text)}`;
+    window.open(url, '_blank');
 
     toast({
       title: '✅ ' + t('contact.success'),

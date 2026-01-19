@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Linkedin, Instagram, Facebook, Mail } from 'lucide-react';
+import { Linkedin, Instagram, Facebook, MessageCircle } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import logo from '@/assets/datecsoft-logo.png';
 
@@ -15,10 +15,10 @@ const Footer = () => {
   ];
 
   const socialLinks = [
-    { icon: Linkedin, href: '#', label: 'LinkedIn' },
-    { icon: Instagram, href: '#', label: 'Instagram' },
-    { icon: Facebook, href: '#', label: 'Facebook' },
-    { icon: Mail, href: 'mailto:info@datecsoft.com', label: 'Email' },
+    { icon: Linkedin, href: 'https://pe.linkedin.com/company/datecsoft-s-r-l', label: 'LinkedIn' },
+    { icon: Instagram, href: 'https://www.instagram.com/datecsoftmarketing.pe/?hl=es-la', label: 'Instagram' },
+    { icon: Facebook, href: 'https://www.facebook.com/profile.php?id=61585459116131', label: 'Facebook' },
+    { icon: MessageCircle, href: 'https://wa.me/51930289206', label: 'WhatsApp' },
   ];
 
   return (
@@ -61,7 +61,7 @@ const Footer = () => {
           {/* Language & Social */}
           <div>
             <h4 className="font-semibold mb-4">Connect</h4>
-            
+
             {/* Social Links */}
             <div className="flex gap-3 mb-6">
               {socialLinks.map((social) => (
@@ -69,6 +69,8 @@ const Footer = () => {
                   key={social.label}
                   href={social.href}
                   aria-label={social.label}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-10 h-10 rounded-full bg-muted flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-all"
                 >
                   <social.icon className="w-4 h-4" />
@@ -80,21 +82,19 @@ const Footer = () => {
             <div className="flex items-center gap-2">
               <button
                 onClick={() => setLanguage('es')}
-                className={`px-3 py-1.5 text-xs font-medium rounded-full transition-all ${
-                  language === 'es'
-                    ? 'bg-primary text-primary-foreground'
-                    : 'bg-muted text-muted-foreground hover:text-foreground'
-                }`}
+                className={`px-3 py-1.5 text-xs font-medium rounded-full transition-all ${language === 'es'
+                  ? 'bg-primary text-primary-foreground'
+                  : 'bg-muted text-muted-foreground hover:text-foreground'
+                  }`}
               >
                 Español
               </button>
               <button
                 onClick={() => setLanguage('en')}
-                className={`px-3 py-1.5 text-xs font-medium rounded-full transition-all ${
-                  language === 'en'
-                    ? 'bg-primary text-primary-foreground'
-                    : 'bg-muted text-muted-foreground hover:text-foreground'
-                }`}
+                className={`px-3 py-1.5 text-xs font-medium rounded-full transition-all ${language === 'en'
+                  ? 'bg-primary text-primary-foreground'
+                  : 'bg-muted text-muted-foreground hover:text-foreground'
+                  }`}
               >
                 English
               </button>

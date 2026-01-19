@@ -3,6 +3,7 @@ import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { ExternalLink } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import pastorImg from '@/assets/hero-bg-pastor.jpg';
 
 const Portfolio = () => {
   const { t } = useLanguage();
@@ -45,6 +46,13 @@ const Portfolio = () => {
       url: 'https://felicaj.pe/',
       image: 'https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=600&h=400&fit=crop',
     },
+    {
+      name: 'Pastor Alemán Cajamarca',
+      category: 'Community',
+      description: t('portfolio.pastoral.desc'),
+      url: 'https://pastoralemancaxamarca.com/',
+      image: pastorImg,
+    },
   ];
 
   return (
@@ -76,20 +84,21 @@ const Portfolio = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: index * 0.1 }}
-              className="group relative rounded-2xl overflow-hidden bg-card border border-border hover:border-primary/50 transition-all duration-300 hover-lift"
+              className="group relative rounded-2xl overflow-hidden bg-card border border-border hover:border-primary/50 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2"
             >
               {/* Image */}
-              <div className="aspect-video overflow-hidden">
+              <div className="aspect-video overflow-hidden relative">
                 <img
                   src={project.image}
                   alt={project.name}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-card via-card/20 to-transparent" />
+                {/* Dark Gradient Overlay on Hover */}
+                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </div>
 
               {/* Content */}
-              <div className="p-6">
+              <div className="p-6 relative z-10">
                 <div className="flex items-center justify-between mb-2">
                   <span className="text-xs font-medium text-primary bg-primary/10 px-3 py-1 rounded-full">
                     {project.category}
@@ -104,8 +113,8 @@ const Portfolio = () => {
                 </p>
               </div>
 
-              {/* Hover Overlay */}
-              <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
+              {/* Decoration */}
+              <div className="absolute inset-0 border-2 border-primary/0 group-hover:border-primary/10 rounded-2xl transition-all duration-300 pointer-events-none" />
             </motion.a>
           ))}
         </div>

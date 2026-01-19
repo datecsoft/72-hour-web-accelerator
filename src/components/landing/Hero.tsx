@@ -81,7 +81,7 @@ const Hero = () => {
             className="flex flex-col sm:flex-row items-center justify-center gap-4"
           >
             <Button size="lg" asChild className="group text-base px-8">
-              <a href="#contact">
+              <a href="https://wa.me/51930289206" target="_blank" rel="noopener noreferrer">
                 {t('hero.cta.primary')}
                 <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
               </a>
