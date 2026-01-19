@@ -53,6 +53,13 @@ const Portfolio = () => {
       url: 'https://pastoralemancaxamarca.com/',
       image: pastorImg,
     },
+    {
+      name: 'Wasi Tours',
+      category: 'Tourism Agency',
+      description: t('portfolio.wasitours.desc'),
+      url: 'https://www.wasitourscajamarca.com/',
+      image: 'https://images.unsplash.com/photo-1587595431973-160d0d94add1?w=600&h=400&fit=crop',
+    },
   ];
 
   return (

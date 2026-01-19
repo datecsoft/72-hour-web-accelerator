@@ -69,6 +69,7 @@ const translations = {
     'portfolio.starkmedia.desc': 'Agencia de producción audiovisual y marketing digital',
     'portfolio.felicaj.desc': 'Portal oficial de la Feria del Libro de Cajamarca',
     'portfolio.pastoral.desc': 'Sitio web para comunidad del Perro Pastor Alemán en Cajamarca',
+    'portfolio.wasitours.desc': 'Agencia de turismo y viajes en Cajamarca',
 
     // Memberships
     'memberships.title': 'Planes de Crecimiento',
@@ -199,6 +200,7 @@ const translations = {
     'portfolio.starkmedia.desc': 'Audiovisual production and digital marketing agency',
     'portfolio.felicaj.desc': 'Official portal for the Cajamarca Book Fair',
     'portfolio.pastoral.desc': 'Website for German Shepherd Dogs Community in Cajamarca',
+    'portfolio.wasitours.desc': 'Tourism and travel agency in Cajamarca',
 
     // Memberships
     'memberships.title': 'Partner Grow Memberships',
